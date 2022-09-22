@@ -4,33 +4,34 @@ import java.util.Scanner;
 import static java.lang.System.*;
 
 /**
- * Hello world!
+ *@author as980(Ashutosh Kumar)
+ *Program to illustrate inheritence in hibernate program.
  *
  */
 
 public class App {
 	public static void main(String[] args) {
 		
-		employeeDao ed = new employeeDao();
-		Scanner sc = new Scanner(System.in); 		 // Here we create object of Scanner class
-		employee e = new employee();
+		employeeDao ed = new employeeDao();				//employeedao object created.
+		Scanner sc = new Scanner(System.in); 		 	// Scanner object created.
+		employee e = new employee();   					//Employee object created.
 		fresherEmployee fe = new fresherEmployee();
 		experienceEmployee ee = new experienceEmployee();
 		
-		int empId;									 // This is a instance variable stuId
-		String empFirstName; 						 // This is a instance variable stuName
+		int empId;									 // Instance variables declared which is used in main class.
+		String empFirstName; 						 
 		String empLastName;
 		int contractPeriod;
 		int increment;
 		int experience;
 		int hike;
 	
-		int count=0;
-		while(count<6) {
+		int count=0;					
+		while(count<6) {				//while loop is used so that user can use the program until he/she want to use it.
 			out.println(" Press 1 to Add Employee.\n Press 2 to Add Fresher Employee.\n Press 3 to Add Experience Employee.\n Press 4 to Get Employee details.\n Press 5 to Remove Employee.\n Press 6 or any other to Exit.");
 			count = sc.nextInt();
 			
-			switch(count) {
+			switch(count) {						//Employee name and id is being taken from the user. 
 			 	case 1-> {
 			 		out.println("Enter your Employee id:- ");
 			 		empId = sc.nextInt();
@@ -42,9 +43,9 @@ public class App {
 			 		empLastName = sc.next();
 			 		e.setEmpLastName(empLastName);
 			 		ed.connect();
-			 		ed.addEmployee(e);
+			 		ed.addEmployee(e);				//Employee details are transfered to employeedao class.
 			 	}
-			 	case 2->{
+			 	case 2->{							//Fresher Employee details are being taken from the user.
 			 		out.println("Enter your Employee id:- ");
 			 		empId = sc.nextInt();
 			 		fe.setEmpId(empId);
@@ -61,9 +62,9 @@ public class App {
 			 		increment = sc.nextInt();
 			 		fe.setIncrement(increment);
 			 		ed.connect();
-			 		ed.addEmployee(fe);
+			 		ed.addEmployee(fe);						//Fresher Employee details are transfered to employeedao class.
 			 	}
-			 	case 3->{
+			 	case 3->{									//Experience Employee details are being taken from the user.
 			 		out.println("Enter your Employee id:- ");
 			 		empId = sc.nextInt();
 			 		ee.setEmpId(empId);
@@ -82,14 +83,14 @@ public class App {
 			 		ed.connect();
 			 		ed.addEmployee(ee);
 			 	}
-			 	case 4->{
+			 	case 4->{									//Here we are fetching the employee details to display.
 			 		System.out.println("Enter your id for get information of employees");
 					 empId= sc.nextInt();
-					 ed.connect();
+					 ed.connect();											
 					 e = ed.getEmployee(empId);
 					 out.println(e);
 			 	}
-			 	case 5->{
+			 	case 5->{								//Here we are removing the employee from the database.
 			 		 out.println("Enter your id to delete employee");
 					 empId = sc.nextInt();
 					 ed.connect();

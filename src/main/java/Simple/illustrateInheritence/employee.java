@@ -9,8 +9,8 @@ import javax.persistence.Id;
 public class employee {						  	//parent class.
 	@Id
 	private int empId;
-	private String empFirstName;
-	private String empLastName;
+	protected String empFirstName;
+	protected String empLastName;
 	
 	public int getEmpId() {
 		return empId;
